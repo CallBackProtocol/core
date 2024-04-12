@@ -1,0 +1,224 @@
+{
+  "address": "0xb8871bdb2794265c136434f05A5C963328e4FAeD",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "InvalidInputVal",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidProofQ",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PairingAddFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PairingMulFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PairingOpcodeFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PRIME_Q",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[8]",
+          "name": "_proof",
+          "type": "uint256[8]"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "x",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "y",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Pairing.G1Point",
+              "name": "alpha1",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256[2]",
+                  "name": "x",
+                  "type": "uint256[2]"
+                },
+                {
+                  "internalType": "uint256[2]",
+                  "name": "y",
+                  "type": "uint256[2]"
+                }
+              ],
+              "internalType": "struct Pairing.G2Point",
+              "name": "beta2",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256[2]",
+                  "name": "x",
+                  "type": "uint256[2]"
+                },
+                {
+                  "internalType": "uint256[2]",
+                  "name": "y",
+                  "type": "uint256[2]"
+                }
+              ],
+              "internalType": "struct Pairing.G2Point",
+              "name": "gamma2",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256[2]",
+                  "name": "x",
+                  "type": "uint256[2]"
+                },
+                {
+                  "internalType": "uint256[2]",
+                  "name": "y",
+                  "type": "uint256[2]"
+                }
+              ],
+              "internalType": "struct Pairing.G2Point",
+              "name": "delta2",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "x",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "y",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Pairing.G1Point[]",
+              "name": "ic",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct SnarkCommon.VerifyingKey",
+          "name": "vk",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "input",
+          "type": "uint256"
+        }
+      ],
+      "name": "verify",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isValid",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2a9cdc50950a8de46482cc83c02e14cf1bb1588607abee241bdadf23ef877cc9",
+  "receipt": {
+    "to": null,
+    "from": "0xa916330337ff3143691fA95aE084e59C28E0CDC2",
+    "contractAddress": "0xb8871bdb2794265c136434f05A5C963328e4FAeD",
+    "transactionIndex": 0,
+    "gasUsed": "595846",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x2ac1e999a95af863e7aabf1f3068761be1c00894b59120d41a370078c2955cce",
+    "transactionHash": "0x2a9cdc50950a8de46482cc83c02e14cf1bb1588607abee241bdadf23ef877cc9",
+    "logs": [],
+    "blockNumber": 5783632,
+    "cumulativeGasUsed": "595846",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 2,
+  "solcInputHash": "79ae3e088114d792164a9068ef4ed3b4",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"InvalidInputVal\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidProofQ\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"PairingAddFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"PairingMulFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"PairingOpcodeFailed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"PRIME_Q\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"_proof\",\"type\":\"uint256[8]\"},{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"y\",\"type\":\"uint256\"}],\"internalType\":\"struct Pairing.G1Point\",\"name\":\"alpha1\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256[2]\",\"name\":\"x\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"y\",\"type\":\"uint256[2]\"}],\"internalType\":\"struct Pairing.G2Point\",\"name\":\"beta2\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256[2]\",\"name\":\"x\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"y\",\"type\":\"uint256[2]\"}],\"internalType\":\"struct Pairing.G2Point\",\"name\":\"gamma2\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256[2]\",\"name\":\"x\",\"type\":\"uint256[2]\"},{\"internalType\":\"uint256[2]\",\"name\":\"y\",\"type\":\"uint256[2]\"}],\"internalType\":\"struct Pairing.G2Point\",\"name\":\"delta2\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"y\",\"type\":\"uint256\"}],\"internalType\":\"struct Pairing.G1Point[]\",\"name\":\"ic\",\"type\":\"tuple[]\"}],\"internalType\":\"struct SnarkCommon.VerifyingKey\",\"name\":\"vk\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"input\",\"type\":\"uint256\"}],\"name\":\"verify\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isValid\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"verify(uint256[8],((uint256,uint256),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256,uint256)[]),uint256)\":{\"params\":{\"_proof\":\"The proof\",\"input\":\"The public inputs to the circuit\",\"vk\":\"The verifying key\"},\"returns\":{\"isValid\":\"Whether the proof is valid given the verifying key and public          input. Note that this function only supports one public input.          Refer to the Semaphore source code for a verifier that supports          multiple public inputs.\"}}},\"title\":\"Verifier\",\"version\":1},\"userdoc\":{\"errors\":{\"InvalidProofQ()\":[{\"notice\":\"custom errors\"}],\"PairingAddFailed()\":[{\"notice\":\"custom errors\"}]},\"kind\":\"user\",\"methods\":{\"verify(uint256[8],((uint256,uint256),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256,uint256)[]),uint256)\":{\"notice\":\"Verify a zk-SNARK proof\"}},\"notice\":\"a Groth16 verifier contract\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/maci-contracts/crypto/Verifier.sol\":\"Verifier\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"contracts/maci-contracts/crypto/Pairing.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// Copyright 2017 Christian Reitwiessner\\n// Permission is hereby granted, free of charge, to any person obtaining a copy\\n// of this software and associated documentation files (the \\\"Software\\\"), to\\n// deal in the Software without restriction, including without limitation the\\n// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or\\n// sell copies of the Software, and to permit persons to whom the Software is\\n// furnished to do so, subject to the following conditions:\\n// The above copyright notice and this permission notice shall be included in\\n// all copies or substantial portions of the Software.\\n// THE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\\n// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\\n// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\\n// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\\n// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\\n// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\\n// IN THE SOFTWARE.\\n\\n// 2019 OKIMS\\n\\npragma solidity ^0.8.10;\\n\\n/// @title Pairing\\n/// @notice A library implementing the alt_bn128 elliptic curve operations.\\nlibrary Pairing {\\n  uint256 public constant PRIME_Q = 21888242871839275222246405745257275088696311157297823662689037894645226208583;\\n\\n  struct G1Point {\\n    uint256 x;\\n    uint256 y;\\n  }\\n\\n  // Encoding of field elements is: X[0] * z + X[1]\\n  struct G2Point {\\n    uint256[2] x;\\n    uint256[2] y;\\n  }\\n\\n  /// @notice custom errors\\n  error PairingAddFailed();\\n  error PairingMulFailed();\\n  error PairingOpcodeFailed();\\n\\n  /// @notice The negation of p, i.e. p.plus(p.negate()) should be zero.\\n  function negate(G1Point memory p) internal pure returns (G1Point memory) {\\n    // The prime q in the base field F_q for G1\\n    if (p.x == 0 && p.y == 0) {\\n      return G1Point(0, 0);\\n    } else {\\n      return G1Point(p.x, PRIME_Q - (p.y % PRIME_Q));\\n    }\\n  }\\n\\n  /// @notice r Returns the sum of two points of G1.\\n  function plus(G1Point memory p1, G1Point memory p2) internal view returns (G1Point memory r) {\\n    uint256[4] memory input;\\n    input[0] = p1.x;\\n    input[1] = p1.y;\\n    input[2] = p2.x;\\n    input[3] = p2.y;\\n    bool success;\\n\\n    // solhint-disable-next-line no-inline-assembly\\n    assembly {\\n      success := staticcall(sub(gas(), 2000), 6, input, 0xc0, r, 0x60)\\n      // Use \\\"invalid\\\" to make gas estimation work\\n      switch success\\n      case 0 {\\n        invalid()\\n      }\\n    }\\n\\n    if (!success) {\\n      revert PairingAddFailed();\\n    }\\n  }\\n\\n  /// @notice r Return the product of a point on G1 and a scalar, i.e.\\n  ///         p == p.scalarMul(1) and p.plus(p) == p.scalarMul(2) for all\\n  ///         points p.\\n  function scalarMul(G1Point memory p, uint256 s) internal view returns (G1Point memory r) {\\n    uint256[3] memory input;\\n    input[0] = p.x;\\n    input[1] = p.y;\\n    input[2] = s;\\n    bool success;\\n    // solhint-disable-next-line no-inline-assembly\\n    assembly {\\n      success := staticcall(sub(gas(), 2000), 7, input, 0x80, r, 0x60)\\n      // Use \\\"invalid\\\" to make gas estimation work\\n      switch success\\n      case 0 {\\n        invalid()\\n      }\\n    }\\n\\n    if (!success) {\\n      revert PairingMulFailed();\\n    }\\n  }\\n\\n  /// @return isValid The result of computing the pairing check\\n  ///         e(p1[0], p2[0]) *  .... * e(p1[n], p2[n]) == 1\\n  ///        For example,\\n  ///        pairing([P1(), P1().negate()], [P2(), P2()]) should return true.\\n  function pairing(\\n    G1Point memory a1,\\n    G2Point memory a2,\\n    G1Point memory b1,\\n    G2Point memory b2,\\n    G1Point memory c1,\\n    G2Point memory c2,\\n    G1Point memory d1,\\n    G2Point memory d2\\n  ) internal view returns (bool isValid) {\\n    G1Point[4] memory p1 = [a1, b1, c1, d1];\\n    G2Point[4] memory p2 = [a2, b2, c2, d2];\\n\\n    uint256 inputSize = 24;\\n    uint256[] memory input = new uint256[](inputSize);\\n\\n    for (uint256 i = 0; i < 4; i++) {\\n      uint256 j = i * 6;\\n      input[j + 0] = p1[i].x;\\n      input[j + 1] = p1[i].y;\\n      input[j + 2] = p2[i].x[0];\\n      input[j + 3] = p2[i].x[1];\\n      input[j + 4] = p2[i].y[0];\\n      input[j + 5] = p2[i].y[1];\\n    }\\n\\n    uint256[1] memory out;\\n    bool success;\\n\\n    // solhint-disable-next-line no-inline-assembly\\n    assembly {\\n      success := staticcall(sub(gas(), 2000), 8, add(input, 0x20), mul(inputSize, 0x20), out, 0x20)\\n      // Use \\\"invalid\\\" to make gas estimation work\\n      switch success\\n      case 0 {\\n        invalid()\\n      }\\n    }\\n\\n    if (!success) {\\n      revert PairingOpcodeFailed();\\n    }\\n\\n    isValid = out[0] != 0;\\n  }\\n}\\n\",\"keccak256\":\"0x5ce2f85d56cec9a08960ebf54fe89a0867deb7f97d3151699ba238848598a1a4\",\"license\":\"MIT\"},\"contracts/maci-contracts/crypto/SnarkCommon.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\nimport { Pairing } from \\\"./Pairing.sol\\\";\\n\\n/// @title SnarkCommon\\n/// @notice a Contract which holds a struct\\n/// representing a Groth16 verifying key\\ncontract SnarkCommon {\\n  /// @notice a struct representing a Groth16 verifying key\\n  struct VerifyingKey {\\n    Pairing.G1Point alpha1;\\n    Pairing.G2Point beta2;\\n    Pairing.G2Point gamma2;\\n    Pairing.G2Point delta2;\\n    Pairing.G1Point[] ic;\\n  }\\n}\\n\",\"keccak256\":\"0xdccb710f060330d75763c92bd6828dd2cc891c3ea5a30ce30ae221c177a7eba7\",\"license\":\"MIT\"},\"contracts/maci-contracts/crypto/SnarkConstants.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\n\\n/// @title SnarkConstants\\n/// @notice This contract contains constants related to the SNARK\\n/// components of MACI.\\ncontract SnarkConstants {\\n  /// @notice The scalar field\\n  uint256 internal constant SNARK_SCALAR_FIELD =\\n    21888242871839275222246405745257275088548364400416034343698204186575808495617;\\n\\n  /// @notice The public key here is the first Pedersen base\\n  /// point from iden3's circomlib implementation of the Pedersen hash.\\n  /// Since it is generated using a hash-to-curve function, we are\\n  /// confident that no-one knows the private key associated with this\\n  /// public key. See:\\n  /// https://github.com/iden3/circomlib/blob/d5ed1c3ce4ca137a6b3ca48bec4ac12c1b38957a/src/pedersen_printbases.js\\n  /// Its hash should equal\\n  /// 6769006970205099520508948723718471724660867171122235270773600567925038008762.\\n  uint256 internal constant PAD_PUBKEY_X =\\n    10457101036533406547632367118273992217979173478358440826365724437999023779287;\\n  uint256 internal constant PAD_PUBKEY_Y =\\n    19824078218392094440610104313265183977899662750282163392862422243483260492317;\\n\\n  /// @notice The Keccack256 hash of 'Maci'\\n  uint256 internal constant NOTHING_UP_MY_SLEEVE =\\n    8370432830353022751713833565135785980866757267633941821328460903436894336785;\\n}\\n\",\"keccak256\":\"0xea489c5ac94d4f25f6255dbfeed0388c2841ead6d9d5e52a19bc8dd2c27b4d21\",\"license\":\"MIT\"},\"contracts/maci-contracts/crypto/Verifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\n\\nimport { Pairing } from \\\"./Pairing.sol\\\";\\nimport { SnarkConstants } from \\\"./SnarkConstants.sol\\\";\\nimport { SnarkCommon } from \\\"./SnarkCommon.sol\\\";\\nimport { IVerifier } from \\\"../interfaces/IVerifier.sol\\\";\\n\\n/// @title Verifier\\n/// @notice a Groth16 verifier contract\\ncontract Verifier is IVerifier, SnarkConstants, SnarkCommon {\\n  struct Proof {\\n    Pairing.G1Point a;\\n    Pairing.G2Point b;\\n    Pairing.G1Point c;\\n  }\\n\\n  using Pairing for *;\\n\\n  uint256 public constant PRIME_Q = 21888242871839275222246405745257275088696311157297823662689037894645226208583;\\n\\n  /// @notice custom errors\\n  error InvalidProofQ();\\n  error InvalidInputVal();\\n\\n  /// @notice Verify a zk-SNARK proof\\n  /// @param _proof The proof\\n  /// @param vk The verifying key\\n  /// @param input The public inputs to the circuit\\n  /// @return isValid Whether the proof is valid given the verifying key and public\\n  ///          input. Note that this function only supports one public input.\\n  ///          Refer to the Semaphore source code for a verifier that supports\\n  ///          multiple public inputs.\\n  function verify(\\n    uint256[8] memory _proof,\\n    VerifyingKey memory vk,\\n    uint256 input\\n  ) public view override returns (bool isValid) {\\n    Proof memory proof;\\n    proof.a = Pairing.G1Point(_proof[0], _proof[1]);\\n    proof.b = Pairing.G2Point([_proof[2], _proof[3]], [_proof[4], _proof[5]]);\\n    proof.c = Pairing.G1Point(_proof[6], _proof[7]);\\n\\n    // Make sure that proof.A, B, and C are each less than the prime q\\n    checkPoint(proof.a.x);\\n    checkPoint(proof.a.y);\\n    checkPoint(proof.b.x[0]);\\n    checkPoint(proof.b.y[0]);\\n    checkPoint(proof.b.x[1]);\\n    checkPoint(proof.b.y[1]);\\n    checkPoint(proof.c.x);\\n    checkPoint(proof.c.y);\\n\\n    // Make sure that the input is less than the snark scalar field\\n    if (input >= SNARK_SCALAR_FIELD) {\\n      revert InvalidInputVal();\\n    }\\n\\n    // Compute the linear combination vk_x\\n    Pairing.G1Point memory vkX = Pairing.G1Point(0, 0);\\n\\n    vkX = Pairing.plus(vkX, Pairing.scalarMul(vk.ic[1], input));\\n\\n    vkX = Pairing.plus(vkX, vk.ic[0]);\\n\\n    isValid = Pairing.pairing(\\n      Pairing.negate(proof.a),\\n      proof.b,\\n      vk.alpha1,\\n      vk.beta2,\\n      vkX,\\n      vk.gamma2,\\n      proof.c,\\n      vk.delta2\\n    );\\n  }\\n\\n  function checkPoint(uint256 point) internal pure {\\n    if (point >= PRIME_Q) {\\n      revert InvalidProofQ();\\n    }\\n  }\\n}\\n\",\"keccak256\":\"0xd39e2836cb2e084157e32cabc1c8e0851e924e9682f673e0c6ba9ff67a5fc6eb\",\"license\":\"MIT\"},\"contracts/maci-contracts/interfaces/IVerifier.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\n\\nimport { SnarkCommon } from \\\"../crypto/SnarkCommon.sol\\\";\\n\\n/// @title IVerifier\\n/// @notice an interface for a Groth16 verifier contract\\ninterface IVerifier {\\n  /// @notice Verify a zk-SNARK proof\\n  /// @param _proof The proof\\n  /// @param vk The verifying key\\n  /// @param input The public inputs to the circuit\\n  /// @return Whether the proof is valid given the verifying key and public\\n  ///          input. Note that this function only supports one public input.\\n  ///          Refer to the Semaphore source code for a verifier that supports\\n  ///          multiple public inputs.\\n  function verify(\\n    uint256[8] memory _proof,\\n    SnarkCommon.VerifyingKey memory vk,\\n    uint256 input\\n  ) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xf237bf3e3dbc948b577cb689eeecf3633c38205e6bd8e8ef0eb1356197e02247\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60808060405234610016576109bd908161001c8239f35b600080fdfe604060808152600436101561001357600080fd5b600090813560e01c91826322b72c941461003d575050638d5329081461003857600080fd5b61031e565b346101725760031961014036820112610175573660231215610175576100623661021e565b91610104359067ffffffffffffffff92838311610175576101e09083360301126101725761008e610193565b9261009c368460040161026e565b84526100ab36604485016102d2565b92602093848601526100c03660c483016102d2565b878601526100d23661014483016102d2565b60608601526101c48101359182116101795701913660238401121561017557600483013561010761010282610306565b6101f8565b9360248386848152019260061b820101933685116101725750602401905b83821061015a576101568861014589898960808201526101243591610446565b905190151581529081906020820190565b0390f35b828891610167368561026e565b815201910190610125565b80fd5b5080fd5b8280fd5b634e487b7160e01b600052604160045260246000fd5b6040519060a0820182811067ffffffffffffffff8211176101b357604052565b61017d565b604051906040820182811067ffffffffffffffff8211176101b357604052565b604051906080820182811067ffffffffffffffff8211176101b357604052565b6040519190601f01601f1916820167ffffffffffffffff8111838210176101b357604052565b9060405191610100830183811067ffffffffffffffff8211176101b35760405282610104918211610269576004905b82821061025957505050565b813581526020918201910161024d565b600080fd5b91908260409103126102695760206102846101b8565b928035845201356020830152565b9080601f83011215610269576102a66101b8565b80926040810192831161026957905b8282106102c25750505090565b81358152602091820191016102b5565b9190608083820312610269576102ff9060406102ec6101b8565b946102f78382610292565b865201610292565b6020830152565b67ffffffffffffffff81116101b35760051b60200190565b346102695760003660031901126102695760206040517f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd478152f35b604051906020820182811067ffffffffffffffff8211176101b3576040526020368337565b604051906060820182811067ffffffffffffffff8211176101b357604052816103a56101b8565b600081526000602082015281526103ba6101b8565b6103c26101b8565b604036823781526103d16101b8565b60403682376020820152602082015260406103ea6101b8565b9160008352600060208401520152565b634e487b7160e01b600052603260045260246000fd5b8051600110156104205760400190565b6103fa565b8051156104205760200190565b80518210156104205760209160051b010190565b9061044f61037e565b91805192602093848301516104626101b8565b9182528582015281526104736101b8565b936040830151855260608301518186015261048c6101b8565b6080840151815260a0840151828201526104a46101b8565b9586528186015280820194855260e060c08401519301516104c36101b8565b93845281840152604082019283526104dc82515161094c565b6104e9818351015161094c565b6104f58551515161094c565b61050381865101515161094c565b61051861051286515160200190565b5161094c565b610529610512828751015160200190565b61053483515161094c565b610541818451015161094c565b7f30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f00000018610156105dd576105be6105b76105da976105b06105a96105816101b8565b600081526000878201526105a360808b019461059d8651610410565b516106fd565b906106a5565b9151610425565b51906106a5565b9251610605565b94519084519085015191606060408701519551960151966107f7565b90565b60405163076be92360e31b8152600490fd5b634e487b7160e01b600052601160045260246000fd5b600060206106116101b8565b8281520152805190811580610688575b1561063e5750506106306101b8565b600081526000602082015290565b602001517f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47908190068103908111610683576106786101b8565b918252602082015290565b6105ef565b50602081015115610621565b9060048110156104205760051b0190565b60609092919260c06106b56101b8565b91600083526000602084015260208396816106ce6101d8565b936080368637805185520151828401528051604084015201518482015260066107cf195a01fa156106fb57565bfe5b91906107076101b8565b60008152600060208201528093604051606081019381851067ffffffffffffffff8611176101b3576020608093606096604052863685378051845201516020830152604082015260076107cf195a01fa156106fb57565b60405190610320820182811067ffffffffffffffff8211176101b35760405260188252610300366020840137565b60001981146106835760010190565b9060068202918083046006149015171561068357565b906001820180921161068357565b906002820180921161068357565b906003820180921161068357565b906004820180921161068357565b906005820180921161068357565b94919596929093966108076101d8565b958652602097889788880152604087015260608601526108256101d8565b938452858401526040830152606082015261083e61075e565b9160005b6004811061087057505050610300610858610359565b9384920160086107cf195a01fa156106fb5751151590565b61094291929394506108818161079b565b61088b8285610694565b51516108978288610432565b52866108a38386610694565b5101516108b86108b2836107b1565b88610432565b526108c38286610694565b5151516108d26108b2836107bf565b526108e86108e08387610694565b515160200190565b516108f56108b2836107cd565b52866109018387610694565b510151516109116108b2836107db565b5261093c61093661092f89610926868a610694565b51015160200190565b51926107e9565b87610432565b5261078c565b9084939291610842565b7f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47111561097557565b6040516308f69c9160e01b8152600490fdfea2646970667358221220647f442a6f73898a181496c74f0343e31f797c801f0c98955c0710e122019ef164736f6c63430008140033",
+  "deployedBytecode": "0x604060808152600436101561001357600080fd5b600090813560e01c91826322b72c941461003d575050638d5329081461003857600080fd5b61031e565b346101725760031961014036820112610175573660231215610175576100623661021e565b91610104359067ffffffffffffffff92838311610175576101e09083360301126101725761008e610193565b9261009c368460040161026e565b84526100ab36604485016102d2565b92602093848601526100c03660c483016102d2565b878601526100d23661014483016102d2565b60608601526101c48101359182116101795701913660238401121561017557600483013561010761010282610306565b6101f8565b9360248386848152019260061b820101933685116101725750602401905b83821061015a576101568861014589898960808201526101243591610446565b905190151581529081906020820190565b0390f35b828891610167368561026e565b815201910190610125565b80fd5b5080fd5b8280fd5b634e487b7160e01b600052604160045260246000fd5b6040519060a0820182811067ffffffffffffffff8211176101b357604052565b61017d565b604051906040820182811067ffffffffffffffff8211176101b357604052565b604051906080820182811067ffffffffffffffff8211176101b357604052565b6040519190601f01601f1916820167ffffffffffffffff8111838210176101b357604052565b9060405191610100830183811067ffffffffffffffff8211176101b35760405282610104918211610269576004905b82821061025957505050565b813581526020918201910161024d565b600080fd5b91908260409103126102695760206102846101b8565b928035845201356020830152565b9080601f83011215610269576102a66101b8565b80926040810192831161026957905b8282106102c25750505090565b81358152602091820191016102b5565b9190608083820312610269576102ff9060406102ec6101b8565b946102f78382610292565b865201610292565b6020830152565b67ffffffffffffffff81116101b35760051b60200190565b346102695760003660031901126102695760206040517f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd478152f35b604051906020820182811067ffffffffffffffff8211176101b3576040526020368337565b604051906060820182811067ffffffffffffffff8211176101b357604052816103a56101b8565b600081526000602082015281526103ba6101b8565b6103c26101b8565b604036823781526103d16101b8565b60403682376020820152602082015260406103ea6101b8565b9160008352600060208401520152565b634e487b7160e01b600052603260045260246000fd5b8051600110156104205760400190565b6103fa565b8051156104205760200190565b80518210156104205760209160051b010190565b9061044f61037e565b91805192602093848301516104626101b8565b9182528582015281526104736101b8565b936040830151855260608301518186015261048c6101b8565b6080840151815260a0840151828201526104a46101b8565b9586528186015280820194855260e060c08401519301516104c36101b8565b93845281840152604082019283526104dc82515161094c565b6104e9818351015161094c565b6104f58551515161094c565b61050381865101515161094c565b61051861051286515160200190565b5161094c565b610529610512828751015160200190565b61053483515161094c565b610541818451015161094c565b7f30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f00000018610156105dd576105be6105b76105da976105b06105a96105816101b8565b600081526000878201526105a360808b019461059d8651610410565b516106fd565b906106a5565b9151610425565b51906106a5565b9251610605565b94519084519085015191606060408701519551960151966107f7565b90565b60405163076be92360e31b8152600490fd5b634e487b7160e01b600052601160045260246000fd5b600060206106116101b8565b8281520152805190811580610688575b1561063e5750506106306101b8565b600081526000602082015290565b602001517f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47908190068103908111610683576106786101b8565b918252602082015290565b6105ef565b50602081015115610621565b9060048110156104205760051b0190565b60609092919260c06106b56101b8565b91600083526000602084015260208396816106ce6101d8565b936080368637805185520151828401528051604084015201518482015260066107cf195a01fa156106fb57565bfe5b91906107076101b8565b60008152600060208201528093604051606081019381851067ffffffffffffffff8611176101b3576020608093606096604052863685378051845201516020830152604082015260076107cf195a01fa156106fb57565b60405190610320820182811067ffffffffffffffff8211176101b35760405260188252610300366020840137565b60001981146106835760010190565b9060068202918083046006149015171561068357565b906001820180921161068357565b906002820180921161068357565b906003820180921161068357565b906004820180921161068357565b906005820180921161068357565b94919596929093966108076101d8565b958652602097889788880152604087015260608601526108256101d8565b938452858401526040830152606082015261083e61075e565b9160005b6004811061087057505050610300610858610359565b9384920160086107cf195a01fa156106fb5751151590565b61094291929394506108818161079b565b61088b8285610694565b51516108978288610432565b52866108a38386610694565b5101516108b86108b2836107b1565b88610432565b526108c38286610694565b5151516108d26108b2836107bf565b526108e86108e08387610694565b515160200190565b516108f56108b2836107cd565b52866109018387610694565b510151516109116108b2836107db565b5261093c61093661092f89610926868a610694565b51015160200190565b51926107e9565b87610432565b5261078c565b9084939291610842565b7f30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47111561097557565b6040516308f69c9160e01b8152600490fdfea2646970667358221220647f442a6f73898a181496c74f0343e31f797c801f0c98955c0710e122019ef164736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "verify(uint256[8],((uint256,uint256),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256,uint256)[]),uint256)": {
+        "params": {
+          "_proof": "The proof",
+          "input": "The public inputs to the circuit",
+          "vk": "The verifying key"
+        },
+        "returns": {
+          "isValid": "Whether the proof is valid given the verifying key and public          input. Note that this function only supports one public input.          Refer to the Semaphore source code for a verifier that supports          multiple public inputs."
+        }
+      }
+    },
+    "title": "Verifier",
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "InvalidProofQ()": [
+        {
+          "notice": "custom errors"
+        }
+      ],
+      "PairingAddFailed()": [
+        {
+          "notice": "custom errors"
+        }
+      ]
+    },
+    "kind": "user",
+    "methods": {
+      "verify(uint256[8],((uint256,uint256),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256[2],uint256[2]),(uint256,uint256)[]),uint256)": {
+        "notice": "Verify a zk-SNARK proof"
+      }
+    },
+    "notice": "a Groth16 verifier contract",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

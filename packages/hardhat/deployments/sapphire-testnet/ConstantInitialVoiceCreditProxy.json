@@ -1,0 +1,113 @@
+{
+  "address": "0xeD014b320C9B8F4c6c387D18Cf04dC45e5f13843",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_balance",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "getVoiceCredits",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x63e8c03744dce66dbe56d0c6117961a4c60e317e776351efa23160ffe1348118",
+  "receipt": {
+    "to": null,
+    "from": "0xa916330337ff3143691fA95aE084e59C28E0CDC2",
+    "contractAddress": "0xeD014b320C9B8F4c6c387D18Cf04dC45e5f13843",
+    "transactionIndex": 0,
+    "gasUsed": "134605",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x55922089d9084c3e7fd8c90e719d4533f3cea11f6242a9622cc009f4c3657cfd",
+    "transactionHash": "0x63e8c03744dce66dbe56d0c6117961a4c60e317e776351efa23160ffe1348118",
+    "logs": [],
+    "blockNumber": 5783628,
+    "cumulativeGasUsed": "134605",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    99
+  ],
+  "numDeployments": 2,
+  "solcInputHash": "79ae3e088114d792164a9068ef4ed3b4",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_balance\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"getVoiceCredits\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"constructor\":{\"params\":{\"_balance\":\"the balance to be returned by getVoiceCredits\"}},\"getVoiceCredits(address,bytes)\":{\"returns\":{\"_0\":\"balance\"}}},\"title\":\"ConstantInitialVoiceCreditProxy\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"creates a new ConstantInitialVoiceCreditProxy\"},\"getVoiceCredits(address,bytes)\":{\"notice\":\"Returns the constant balance for any new MACI's voter\"}},\"notice\":\"This contract allows to set a constant initial voice credit balance for MACI's voters.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/maci-contracts/initialVoiceCreditProxy/ConstantInitialVoiceCreditProxy.sol\":\"ConstantInitialVoiceCreditProxy\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"contracts/maci-contracts/initialVoiceCreditProxy/ConstantInitialVoiceCreditProxy.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\n\\nimport { InitialVoiceCreditProxy } from \\\"./InitialVoiceCreditProxy.sol\\\";\\n\\n/// @title ConstantInitialVoiceCreditProxy\\n/// @notice This contract allows to set a constant initial voice credit balance\\n/// for MACI's voters.\\ncontract ConstantInitialVoiceCreditProxy is InitialVoiceCreditProxy {\\n  /// @notice the balance to be returned by getVoiceCredits\\n  uint256 internal balance;\\n\\n  /// @notice creates a new ConstantInitialVoiceCreditProxy\\n  /// @param _balance the balance to be returned by getVoiceCredits\\n  constructor(uint256 _balance) payable {\\n    balance = _balance;\\n  }\\n\\n  /// @notice Returns the constant balance for any new MACI's voter\\n  /// @return balance\\n  function getVoiceCredits(address, bytes memory) public view override returns (uint256) {\\n    return balance;\\n  }\\n}\\n\",\"keccak256\":\"0xa2fd5cfacbb610350cf8edce2b87eeceac587310f9d19837b3b51e2af89f433c\",\"license\":\"MIT\"},\"contracts/maci-contracts/initialVoiceCreditProxy/InitialVoiceCreditProxy.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.10;\\n\\n/// @title InitialVoiceCreditProxy\\n/// @notice This contract is the base contract for\\n/// InitialVoiceCreditProxy contracts. It allows to set a custom initial voice\\n/// credit balance for MACI's voters.\\nabstract contract InitialVoiceCreditProxy {\\n  /// @notice Returns the initial voice credit balance for a new MACI's voter\\n  /// @param _user the address of the voter\\n  /// @param _data additional data\\n  /// @return the balance\\n  // solhint-disable-next-line no-empty-blocks\\n  function getVoiceCredits(address _user, bytes memory _data) public view virtual returns (uint256) {}\\n}\\n\",\"keccak256\":\"0x5d37ff30a2191f5fff292f120250c5fc3c3a876944f460e054658f3cd05f6c35\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080601f61016b38819003918201601f19168301916001600160401b038311848410176100515780849260209460405283398101031261004c575160005560405161010390816100688239f35b600080fd5b634e487b7160e01b600052604160045260246000fdfe60806004361015600e57600080fd5b6000803560e01c63b36543a914602357600080fd5b3460ca57604036600319011260ca576004356001600160a01b0381160360ca5767ffffffffffffffff9160243583811160b2573660238201121560b25780600401359380851160b657601f8501601f19908116603f011683019081118382101760b657604052838252366024858301011160b25783839260209560248794018483013701015254604051908152f35b8280fd5b634e487b7160e01b84526041600452602484fd5b80fdfea264697066735822122069e5aec4ec37f0596837b540a59dc18755fe91c7a9aeaaaa648c35a7af86ee9664736f6c63430008140033",
+  "deployedBytecode": "0x60806004361015600e57600080fd5b6000803560e01c63b36543a914602357600080fd5b3460ca57604036600319011260ca576004356001600160a01b0381160360ca5767ffffffffffffffff9160243583811160b2573660238201121560b25780600401359380851160b657601f8501601f19908116603f011683019081118382101760b657604052838252366024858301011160b25783839260209560248794018483013701015254604051908152f35b8280fd5b634e487b7160e01b84526041600452602484fd5b80fdfea264697066735822122069e5aec4ec37f0596837b540a59dc18755fe91c7a9aeaaaa648c35a7af86ee9664736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "params": {
+          "_balance": "the balance to be returned by getVoiceCredits"
+        }
+      },
+      "getVoiceCredits(address,bytes)": {
+        "returns": {
+          "_0": "balance"
+        }
+      }
+    },
+    "title": "ConstantInitialVoiceCreditProxy",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "creates a new ConstantInitialVoiceCreditProxy"
+      },
+      "getVoiceCredits(address,bytes)": {
+        "notice": "Returns the constant balance for any new MACI's voter"
+      }
+    },
+    "notice": "This contract allows to set a constant initial voice credit balance for MACI's voters.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 9391,
+        "contract": "contracts/maci-contracts/initialVoiceCreditProxy/ConstantInitialVoiceCreditProxy.sol:ConstantInitialVoiceCreditProxy",
+        "label": "balance",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
