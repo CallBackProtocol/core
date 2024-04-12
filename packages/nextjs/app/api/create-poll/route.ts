@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
-import OpenAI from "openai";
 import BlandRequest from "~~/Model/BlandRequest";
 import Poll from "~~/Model/Poll";
 import connectDB from "~~/connectDB";
