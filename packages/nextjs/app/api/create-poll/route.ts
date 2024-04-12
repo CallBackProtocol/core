@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
+import OpenAI from "openai";
 import BlandRequest from "~~/Model/BlandRequest";
 import Poll from "~~/Model/Poll";
 import connectDB from "~~/connectDB";
@@ -27,7 +28,7 @@ export async function POST(req: Request) {
   // create a api object for the bland api
   // Headers
   const headers = {
-    Authorization: "sk-re1rhvad2ssilpdd6zrwbw4xbm57u1mi1gj6blf1jzs02yhew8lfh2h18z6zirkh69",
+    Authorization: process.env.BLAND_API_KEY,
   };
 
   const poll = new Poll({
@@ -40,9 +41,8 @@ export async function POST(req: Request) {
 
   await poll.save();
 
-  console.log(poll);
-
   for (const phoneNumber of phoneNumbers) {
+    const webhoookUrl = `${req.url.split("/api")[0]}/api/webhook/bland`;
     console.log(phoneNumber);
 
     // Data
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         rating: "the numeric rating between 1 and 10",
         feedback: "the feedback of the user",
       },
-      webhook: "https://webhook.site/818c9f3f-9e5a-4f99-9800-4a06b16ed2fe",
+      webhook: webhoookUrl,
     };
 
     // API request

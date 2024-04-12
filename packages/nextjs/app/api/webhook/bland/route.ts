@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import BlandRequest from "~~/Model/BlandRequest";
 import connectDB from "~~/connectDB";
 
 export async function POST(req: Request) {
@@ -21,6 +22,11 @@ export async function POST(req: Request) {
   if (!completed) return NextResponse.json({ error: "call not completed yet" }, { status: 400 });
 
   await connectDB();
+  const blandRequest = await BlandRequest.findOne({ requestId: call_id });
+
+  if (blandRequest.fulfilled) {
+    return NextResponse.json({ error: "request already fulfilled" }, { status: 400 });
+  }
 
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -32,7 +38,7 @@ export async function POST(req: Request) {
       {
         role: "system",
         content:
-          'This is a conversation between a chat assistant and a user.\nUser is rating from 1 to 10 about a product or service, and also giving a feedback on it, you need to provide me with a json object with the following format.\n{"rating": "number between 1 and 10", "feedback": "summary of the feedback from the user in first person"} ',
+          'This is a conversation between a chat assistant and a user.\nUser is rating from 1 to 10 about a product or service, and also giving a feedback on it, you need to provide me with a json object with the following format.\n{"rating": "number between 1 and 10", "feedback": "summary of the feedback from the user in first person"} or return {"error": true} if the user didn\'t provide the right response',
       },
       {
         role: "user",
@@ -46,7 +52,16 @@ export async function POST(req: Request) {
     presence_penalty: 0,
   });
 
-  console.log(response.choices[0].message.content);
+  const { rating, feedback, error } = JSON.parse(response.choices[0].message.content as string);
+
+  if (error) {
+    return NextResponse.json({ message: "call rescheduled" });
+  }
+
+  blandRequest.fulfilled = true;
+  await blandRequest.save();
+
+  console.log(rating, feedback);
 
   return NextResponse.json({ message: "Hello World" });
 }
