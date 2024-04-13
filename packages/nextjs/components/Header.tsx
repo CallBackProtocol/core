@@ -8,6 +8,7 @@ import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { Wallet } from "../services_copy/near-wallet";
 
 type HeaderMenuLink = {
   label: string;
@@ -21,7 +22,7 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "Debug Contracts",
+    label: "Debug",
     href: "/debug",
     icon: <BugAntIcon className="h-4 w-4" />,
   },
@@ -73,6 +74,9 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
+  const signIn = () => { wallet.signIn() }
+  const signOut = () => { wallet.signOut() }
+
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
       <div className="navbar-start w-auto lg:w-1/2">
@@ -110,6 +114,12 @@ export const Header = () => {
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
           <HeaderMenuLinks />
         </ul>
+      </div>
+      <div className='navbar-nav pt-1'>
+      {isSignedIn
+            ? <button  className="btn btn-secondary" onClick={signOut}>Logout {wallet.accountId}</button>
+            : <button className="btn btn-secondary" onClick={signIn}>Login</button>
+      }
       </div>
       <div className="navbar-end flex-grow mr-4">
         <RainbowKitCustomConnectButton />

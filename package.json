@@ -36,11 +36,40 @@
   },
   "packageManager": "yarn@3.2.3",
   "devDependencies": {
+    "@types/bn.js": "^5",
+    "@types/elliptic": "^6",
+    "@types/keccak": "^3",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   },
   "dependencies": {
+    "@bitcoinerlab/secp256k1": "^1.1.1",
+    "@near-js/transactions": "^0.2.1",
+    "@near-wallet-selector/core": "^8.5.2",
+    "@near-wallet-selector/wallet-utils": "^8.5.2",
     "@oasisprotocol/sapphire-hardhat": "^2.19.4",
-    "openai": "^4.33.0"
+    "axios": "^1.6.7",
+    "bitcoinjs-lib": "^6.1.5",
+    "bn.js": "^5.2.1",
+    "bs58": "^5.0.0",
+    "bs58check": "^3.0.1",
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "ecpair": "^2.1.0",
+    "elliptic": "^6.5.4",
+    "ethers": "^6.11.1",
+    "keccak": "^3.0.4",
+    "near-api-js": "^4.0.0",
+    "next": "14.1.0",
+    "openai": "^4.33.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
+    "react-icons": "^5.0.1",
+    "react-toastify": "^10.0.4",
+    "viem": "^2.9.16"
   }
 }
