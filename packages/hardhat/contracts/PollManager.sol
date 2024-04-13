@@ -6,24 +6,13 @@ import { Params } from "./maci-contracts/utilities/Params.sol";
 import { DomainObjs } from "./maci-contracts/utilities/DomainObjs.sol";
 
 contract PollManager is Params, DomainObjs {
-	struct PollContracts {
-		address poll;
-		address messageProcessor;
-		address tally;
-		address subsidy;
-	}
-
 	struct PollData {
 		uint256 id;
 		uint256 maciPollId;
 		string name;
-		bytes encodedOptions;
-		string ipfsHash;
 		MACI.PollContracts pollContracts;
 		uint256 startTime;
 		uint256 endTime;
-		uint256 numOfOptions;
-		string[] options;
 		string tallyJsonCID;
 	}
 
@@ -37,7 +26,6 @@ contract PollManager is Params, DomainObjs {
 	PubKey public coordinatorPubKey;
 	address public verifier;
 	address public vkRegistry;
-	bool public useSubsidy;
 	bool public isQv;
 
 	event PollCreated(
@@ -46,8 +34,6 @@ contract PollManager is Params, DomainObjs {
 		address indexed creator,
 		MACI.PollContracts pollContracts,
 		string name,
-		string[] options,
-		string ipfsHash,
 		uint256 startTime,
 		uint256 endTime
 	);
@@ -76,27 +62,23 @@ contract PollManager is Params, DomainObjs {
 		TreeDepths memory _treeDepths,
 		PubKey memory _coordinatorPubKey,
 		address _verifier,
-		address _vkRegistry,
-		bool _useSubsidy
+		address _vkRegistry
 	) public onlyOwner {
 		treeDepths = _treeDepths;
 		coordinatorPubKey = _coordinatorPubKey;
 		verifier = _verifier;
 		vkRegistry = _vkRegistry;
-		useSubsidy = _useSubsidy;
 	}
 
 	function createPoll(
 		string calldata _name,
-		string[] calldata _options,
-		string calldata _ipfsHash,
-		uint256 _duration
+		uint256 _expiry
 	) public onlyOwner {
-		// TODO: check if the number of options are more than limit
+		if (_expiry < block.timestamp) revert("expiry cannot be before now");
 
 		// deploy the poll contracts
 		MACI.PollContracts memory pollContracts = maci.deployPoll(
-			_duration,
+			_expiry - block.timestamp,
 			treeDepths,
 			coordinatorPubKey,
 			verifier,
@@ -104,10 +86,6 @@ contract PollManager is Params, DomainObjs {
 			isQv
 		);
 
-		// encode options to bytes for retrieval
-		bytes memory encodedOptions = abi.encode(_options);
-
-		uint256 endTime = block.timestamp + _duration;
 		uint256 pollId = ++totalPolls;
 
 		pollIdByAddress[pollContracts.poll] = pollId;
@@ -118,13 +96,9 @@ contract PollManager is Params, DomainObjs {
 			id: pollId,
 			maciPollId: maciPollId,
 			name: _name,
-			encodedOptions: encodedOptions,
-			numOfOptions: _options.length,
-			ipfsHash: _ipfsHash,
 			startTime: block.timestamp,
-			endTime: endTime,
+			endTime: _expiry,
 			pollContracts: pollContracts,
-			options: _options,
 			tallyJsonCID: ""
 		});
 
@@ -134,10 +108,8 @@ contract PollManager is Params, DomainObjs {
 			msg.sender,
 			pollContracts,
 			_name,
-			_options,
-			_ipfsHash,
 			block.timestamp,
-			endTime
+			_expiry
 		);
 	}
 

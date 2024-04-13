@@ -57,7 +57,6 @@ const deployContracts: DeployFunction = async function (hre: HardhatRuntimeEnvir
     coordinatorKeypair.pubKey.asContractParam(),
     await verifier.getAddress(),
     await vkRegistry.getAddress(),
-    false,
   );
 };
 
