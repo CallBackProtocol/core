@@ -1,28 +1,39 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
+import { createPublicClient, createWalletClient, decodeEventLog, getContract, http } from "viem";
 import BlandRequest from "~~/Model/BlandRequest";
+import Organization from "~~/Model/Organization";
 import Poll from "~~/Model/Poll";
+import RewardToken from "~~/abi/RewardToken";
 import connectDB from "~~/connectDB";
+import { pollManagerContract, publicClient, serverAccount, supportedChains } from "~~/constants";
 
 export async function POST(req: Request) {
-  let name, description, phoneNumbers, expiry, reward;
+  let name, description, phoneNumbers, expiry, reward, organizationId;
 
   try {
     const body = await req.json();
 
-    name = body.name;
-    description = body.description;
-    phoneNumbers = body.phoneNumbers;
-    expiry = body.expiry;
-    reward = body.reward;
+    name = body.name as string | undefined;
+    description = body.description as string | undefined;
+    phoneNumbers = body.phoneNumbers as string[] | undefined;
+    expiry = body.expiry as number | undefined;
+    reward = body.reward as string | undefined;
+    organizationId = body.organizationId as string | undefined;
   } catch (err) {
     return NextResponse.json({ error: "invalid body" }, { status: 409 });
   }
 
-  if (!name || !description || !phoneNumbers || !expiry || !reward)
+  if (!name || !description || !phoneNumbers || !expiry || !reward || !organizationId)
     return NextResponse.json({ error: "invalid body" }, { status: 409 });
 
   await connectDB();
+
+  // check if organization exists
+  const org = await Organization.findById(organizationId);
+  if (!org) {
+    return NextResponse.json({ error: "unable to find organization" }, { status: 400 });
+  }
 
   // create a api object for the bland api
   // Headers
@@ -30,12 +41,29 @@ export async function POST(req: Request) {
     Authorization: process.env.BLAND_API_KEY,
   };
 
+  // create poll on the maci contract
+  const tx = await pollManagerContract.write.createPoll([name, BigInt(expiry)]);
+  const transaction = await publicClient.getTransactionReceipt({ hash: tx });
+
+  const events: any[] = [];
+
+  for (const log of transaction.logs) {
+    try {
+      events.push(decodeEventLog({ abi: pollManagerContract.abi, data: log.data, topics: log.topics }));
+    } catch (e) {}
+  }
+
+  const pollCreatedEvent = events.filter(event => event.eventName === "PollCreated")[0];
+
   const poll = new Poll({
     name: name,
     description,
     phoneNumbers,
-    expiry: new Date(),
+    expiry: new Date(expiry * 1000),
     reward,
+    pollManagerId: Number(pollCreatedEvent.args.pollId),
+    maciPollId: Number(pollCreatedEvent.args.maciPollId),
+    organizationId,
   });
 
   await poll.save();
@@ -79,11 +107,30 @@ export async function POST(req: Request) {
     });
 
     await blankResponse.save();
-
-    console.log(response);
   }
 
-  console.log({ name, description, phoneNumbers, expiry, reward });
+  // update the reward on the smart contract
+  const chain = supportedChains.filter(chain => chain.id === org.chainId)[0];
+  const publicClientChainSpecific = createPublicClient({ chain, transport: http() });
+  const walletClientChainSpecific = createWalletClient({
+    chain,
+    transport: http(),
+    key: process.env.SERVER_PRIVATE_KEY,
+    account: serverAccount,
+  });
+  const rewardTokenContract = getContract({
+    abi: RewardToken,
+    address: org.rewardContractAddress,
+    publicClient: publicClientChainSpecific,
+    walletClient: walletClientChainSpecific,
+  });
 
-  return NextResponse.json({ message: "Hello World" });
+  const txHash = await rewardTokenContract.write.createPollAndAddReward([
+    pollCreatedEvent.args.maciPollId,
+    BigInt(reward),
+  ]);
+
+  console.log({ name, description, phoneNumbers, expiry, reward, txHash });
+
+  return NextResponse.json({ message: "The poll is created successfully" });
 }

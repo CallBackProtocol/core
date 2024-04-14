@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { genRandomSalt } from "@se-2/hardhat/maci-ts/crypto";
 import { Keypair, Message, PCommand, PubKey } from "@se-2/hardhat/maci-ts/domainobjs";
 import { useContractRead, useContractWrite } from "wagmi";
-import PollAbi from "~~/abi/Poll.json";
+import PollAbi from "~~/abi/Poll";
 import VoteCard from "~~/components/card/VoteCard";
 import { useAuthContext } from "~~/contexts/AuthContext";
 import { useAuthUserOnly } from "~~/hooks/useAuthUserOnly";
@@ -43,14 +43,12 @@ export default function PollDetail() {
     abi: PollAbi,
     address: poll?.pollContracts.poll,
     functionName: "maxValues",
-    args: [],
   });
 
   const { data: coordinatorPubKeyResult } = useContractRead({
     abi: PollAbi,
     address: poll?.pollContracts.poll,
     functionName: "coordinatorPubKey",
-    args: [],
   });
 
   const [message, setMessage] = useState<{ message: Message; encKeyPair: Keypair }>();

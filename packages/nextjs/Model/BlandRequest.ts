@@ -4,7 +4,7 @@ const BlandRequest = new mongoose.Schema(
   {
     pollId: mongoose.Types.ObjectId,
     requestId: String,
-    fulfilled: Boolean,
+    fulfilled: { type: Boolean, default: false },
   },
   {
     timestamps: true,
