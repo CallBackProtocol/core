@@ -21,6 +21,7 @@ contract PollManager is Params, DomainObjs {
 	uint256 public totalPolls;
 
 	MACI public maci;
+	mapping(uint256 => address) public admins;
 
 	TreeDepths public treeDepths;
 	PubKey public coordinatorPubKey;
@@ -71,6 +72,7 @@ contract PollManager is Params, DomainObjs {
 	}
 
 	function createPoll(
+		address admin,
 		string calldata _name,
 		uint256 _expiry
 	) public onlyOwner {
@@ -87,6 +89,7 @@ contract PollManager is Params, DomainObjs {
 		);
 
 		uint256 pollId = ++totalPolls;
+		admins[pollId] = admin;
 
 		pollIdByAddress[pollContracts.poll] = pollId;
 		uint256 maciPollId = maci.getPollId(pollContracts.poll);
